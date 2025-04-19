@@ -1,0 +1,138 @@
+
+body {
+  background-image: url('wave.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+header {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 8px;
+}
+.section-white {
+  background: white;
+  color: black;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 8px;
+}
+h1, h2, h3 { color: #ffc107; }
+.navbar-brand, .nav-link { color: #fff !important; }
+footer {
+  background: transparent;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+.carousel-item img {
+  max-height: 50vh;
+  object-fit: contain;
+  margin: auto;
+}
+
+
+
+
+
+
+
+
+/* Card for contact page */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+  border-radius: 8px;
+}
+
+/* Contact & footer styles */
+.contact-card {
+  max-width: 400px;
+  background: white;
+  color: black;
+  padding: 1rem;
+  margin: 2rem auto;
+  border-radius: 8px;
+  text-align: center;
+}
+.contact-card a {
+  color: black;
+  text-decoration: none;
+}
+.footer-links a {
+  background: rgba(255,255,255,0.8);
+  color: black !important;
+  padding: 0.25rem 0.5rem;
+  margin: 0 0.25rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.footer-links a:hover {
+  background: rgba(255,255,255,1);
+}
+
+
+/* Carousel: transparent background, larger slides */
+#headshotCarousel 
+#headshotCarousel 
+#headshotCarousel .carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Scratch page custom background placeholder */
+body.scratch-page {
+  background-image: url('scratch-bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+
+
+
+
+/* Scratch page full-screen background */
+body.scratch-page {
+  background: url('scratch-bg.jpeg') no-repeat center center fixed !important;
+  background-size: cover !important;
+}
+/* Make container transparent on scratch page */
+
+
+/* Scratch page text container background */
+body.scratch-page .container {
+  background: rgba(0, 0, 0, 0.6) !important;
+  padding: 2rem;
+  border-radius: 8px;
+  color: white;
+}
+
+
+/* Single-item headshot carousel centered */
+#headshotCarousel .carousel-inner {
+  display: block !important;
+  text-align: center !important;
+  overflow: hidden;
+}
+#headshotCarousel .carousel-item {
+  display: inline-block !important;
+  margin: 0 auto !important;
+}
+#headshotCarousel .carousel-item img {
+  display: inline-block;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+}
