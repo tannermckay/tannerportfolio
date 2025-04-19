@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movie Quote Game | Tanner McKay</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head><body class="scratch-page">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Tanner McKay</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="education.html">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
+        <li class="nav-item"><a class="nav-link" href="scratch.html">Scratch</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container text-center">
+  <h1>Guess the Movie Quote</h1>
+  <button onclick="startGame()" class="btn btn-warning">Start Game</button>
+</div>
+
+
+<script>
+const quotes = [
+  {quote: "I say just live long enough to see your kids get their driver’s licenses.", movie: "Juno"},
+  {quote: "We can rebuild him. We have the technology.", movie: "The Six Million Dollar Man"},
+  {quote: "The only rule is there are no rules.", movie: "Ferris Bueller’s Day Off"},
+  {quote: "I found a way to get back.", movie: "Back to the Future Part III"},
+  {quote: "I may be rusty, Bubba, but I can still SERVE.", movie: "Forrest Gump"},
+  {quote: "You look mahvelous.", movie: "Zoolander"},
+  {quote: "It’s like I have ESPN or something.", movie: "Mean Girls"},
+  {quote: "That rug really tied the room together, did it not?", movie: "The Big Lebowski"},
+  {quote: "I’ll have what she’s having.", movie: "When Harry Met Sally…"},
+  {quote: "Wax on, wax off.", movie: "The Karate Kid"},
+  {quote: "Do you understand the words that are coming out of my mouth?", movie: "Rush Hour"},
+  {quote: "I used to be embarrassed by my scars… now I want to show them off.", movie: "The Wolverine"},
+  {quote: "I never met a matrix I didn’t like.", movie: "The Matrix Reloaded"},
+  {quote: "I’m not superstitious, but I am a little stitious.", movie: "The Office (film cameo)"},
+  {quote: "Forget it, Jake. It’s Chinatown.", movie: "Chinatown"},
+  {quote: "I smell footsteps.", movie: "Die Hard with a Vengeance"},
+  {quote: "I’ve flown from New York to LA in < 15 minutes.", movie: "The Dark Knight"},
+  {quote: "People are wonderful when you have nothing to lose.", movie: "Donnie Brasco"},
+  {quote: "I’d wish you the best of luck, but I believe luck is a concept created by the weak.", movie: "The Dark Knight"},
+  {quote: "Eat the rich, son.", movie: "Trading Places"},
+  {quote: "Careful, it’s hot—and I didn’t warn you.", movie: "Alien"},
+  {quote: "I have to return some videotapes.", movie: "American Psycho"},
+  {quote: "You can’t handle the truth!", movie: "A Few Good Men"},
+  {quote: "Life is a banquet, and most poor suckers are starving to death!", movie: "Auntie Mame"},
+  {quote: "I’m just one stomach flu away from my goal weight.", movie: "The Devil Wears Prada"},
+  {quote: "There’s no crying in baseball!", movie: "A League of Their Own"},
+  {quote: "Get busy living or get busy dying.", movie: "The Shawshank Redemption"},
+  {quote: "I have nipples, Greg. Could you milk me?", movie: "Meet the Parents"},
+  {quote: "Never argue with stupid people. They will drag you down to their level and beat you with experience.", movie: "Mark Twain—but heard in multiple films"},
+  {quote: "I drink your milkshake!", movie: "There Will Be Blood"},
+  {quote: "I’m sorry, Dave. I’m afraid I can’t do that.", movie: "2001: A Space Odyssey"},
+  {quote: "Why so serious?", movie: "The Dark Knight"},
+  {quote: "They may take our lives, but they’ll never take our freedom!", movie: "Braveheart"},
+  {quote: "I just love the smell of napalm in the morning.", movie: "Apocalypse Now"},
+  {quote: "I drink and I know things.", movie: "Game of Thrones Movie Special"},
+  {quote: "I’m having an old friend for dinner.", movie: "The Silence of the Lambs"},
+  {quote: "I’m the king of the world!", movie: "Titanic"},
+  {quote: "I’m walking here! I’m walking here!", movie: "Midnight Cowboy"},
+  {quote: "Are you not entertained?", movie: "Gladiator"},
+  {quote: "I’m too old for this shit.", movie: "Lethal Weapon"},
+  {quote: "I love the smell of victory in the morning.", movie: "Stripes"},
+  {quote: "As if!", movie: "Clueless"},
+  {quote: "Gentlemen, you can't fight in here! This is the war room!", movie: "Dr. Strangelove"},
+  {quote: "I don’t want to survive. I want to live.", movie: "12 Years a Slave"},
+  {quote: "Houston, we have a problem.", movie: "Apollo 13"},
+  {quote: "Just when I thought I was out, they pull me back in.", movie: "The Godfather Part III"},
+  {quote: "I have a bad feeling about this.", movie: "Star Wars: Episode V – The Empire Strikes Back"},
+  {quote: "Here’s looking at you, kid.", movie: "Casablanca"},
+  {quote: "If you build it, he will come.", movie: "Field of Dreams"},
+  {quote: "You talkin’ to me?", movie: "Taxi Driver"},
+  {quote: "I’m going to make him an offer he can’t refuse.", movie: "The Godfather"},
+  {quote: "Chewie, we’re home.", movie: "Star Wars: The Force Awakens"},
+  {quote: "Adventure. Excitement. A Jedi craves not these things.", movie: "Star Wars: The Empire Strikes Back"},
+  {quote: "Why don’t you make like a tree and get out of here?", movie: "Back to the Future"},
+  {quote: "Roads? Where we’re going, we don’t need roads.", movie: "Back to the Future"},
+  {quote: "I love lamp.", movie: "Anchorman"},
+  {quote: "You is kind. You is smart. You is important.", movie: "The Help"},
+  {quote: "After all, tomorrow is another day!", movie: "Gone with the Wind"},
+  {quote: "I'm Spartacus!", movie: "Spartacus"},
+  {quote: "Mama says life is like a box of chocolates.", movie: "Forrest Gump"},
+  {quote: "Life moves pretty fast. If you don’t stop and look around once in a while, you could miss it.", movie: "Ferris Bueller’s Day Off"},
+  {quote: "You either die a hero or live long enough to see yourself become the villain.", movie: "The Dark Knight"},
+  {quote: "I wish I knew how to quit you.", movie: "Brokeback Mountain"},
+  {quote: "This is the start of a beautiful friendship.", movie: "Casablanca"},
+  {quote: "Here’s Johnny!", movie: "The Shining"},
+  {quote: "They call it a Royale with cheese.", movie: "Pulp Fiction"},
+  {quote: "Keep your friends close, but your enemies closer.", movie: "The Godfather Part II"},
+  {quote: "Toto, I have a feeling we’re not in Kansas anymore.", movie: "The Wizard of Oz"},
+  {quote: "Get your stinking paws off me, you damned dirty ape!", movie: "Planet of the Apes"},
+  {quote: "Say ‘hello’ to my little friend!", movie: "Scarface"},
+  {quote: "Bond. James Bond.", movie: "Dr. No"},
+  {quote: "Elementary, my dear Watson.", movie: "The Adventures of Sherlock Holmes"},
+  {quote: "I feel the need—the need for speed!", movie: "Top Gun"},
+  {quote: "There’s no place like home.", movie: "The Wizard of Oz"},
+  {quote: "I’m as mad as hell, and I’m not going to take this anymore!", movie: "Network"},
+  {quote: "To infinity and beyond!", movie: "Toy Story"},
+  {quote: "We’re on a mission from God.", movie: "The Blues Brothers"},
+  {quote: "I see dead people.", movie: "The Sixth Sense"},
+  {quote: "Keep the change, ya filthy animal.", movie: "Home Alone"},
+  {quote: "I am serious. And don’t call me Shirley.", movie: "Airplane!"},
+  {quote: "Yippee-ki-yay, motherf—", movie: "Die Hard"},
+  {quote: "I’ll be back.", movie: "The Terminator"},
+  {quote: "Just keep swimming.", movie: "Finding Nemo"},
+  {quote: "Inconceivable!", movie: "The Princess Bride"},
+  {quote: "My precious.", movie: "The Lord of the Rings: The Two Towers"},
+  {quote: "I volunteer as tribute!", movie: "The Hunger Games"},
+  {quote: "What we do in life echoes in eternity.", movie: "Gladiator"},
+  {quote: "I am Iron Man.", movie: "Iron Man"},
+  {quote: "This is the day you will always remember as the day you almost caught Captain Jack Sparrow.", movie: "Pirates of the Caribbean: The Curse of the Black Pearl"},
+  {quote: "You’re gonna need a bigger boat.", movie: "Jaws"},
+  {quote: "Get to the chopper!", movie: "Predator"},
+  {quote: "One does not simply walk into Mordor.", movie: "The Lord of the Rings: The Fellowship of the Ring"},
+  {quote: "The first rule of Fight Club is: you do not talk about Fight Club.", movie: "Fight Club"},
+  {quote: "I am your father.", movie: "Star Wars: Episode V – The Empire Strikes Back"},
+  {quote: "Why don’t you just shut up and dance with me?", movie: "The Wedding Singer"}
+];
+
+function shuffle(arr){return arr.sort(()=>0.5-Math.random());}
+const gameQuotes = shuffle(quotes).slice(0,100);
+let current=0, score=0;
+function startGame(){
+  current=0; score=0; playRound();
+}
+function playRound(){
+  if(current>=gameQuotes.length){
+    alert(`Game over! Final Score: ${score}/${gameQuotes.length}`);
+    return;
+  }
+  const {quote, movie} = gameQuotes[current];
+  const ans = prompt(`(${current+1}/${gameQuotes.length}) ${quote}
+Which movie? (exit to quit)`);
+  if(!ans||ans.toLowerCase()==="exit"){
+    alert(`You exited. Score: ${score}/${current}`);
+    return;
+  }
+  if(ans.toLowerCase().includes(movie.toLowerCase())){
+    score++; alert("✅ Correct!");
+  } else{
+    alert(`❌ Nope! It was "${movie}"`);
+  }
+  current++; playRound();
+}
+</script>
+
+
+
+<footer></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>
